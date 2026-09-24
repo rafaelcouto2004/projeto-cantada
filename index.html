@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>uma pergunta</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="bg-glow"></div>
+<div class="bg-grid"></div>
+<div class="particles" id="particles"></div>
+
+<div class="stage">
+  <div class="progress">
+    <span class="dot active" id="dot1"></span>
+    <span class="dot" id="dot2"></span>
+    <span class="dot" id="dot3"></span>
+  </div>
+
+  <div id="step1" class="step active">
+    <div class="flirt">
+      <img src="assets/smiley-rose.png" alt="Carinha sorridente segurando uma rosa">
+    </div>
+    <h1>Topa sair comigo?</h1>
+    <p class="sub">é só uma pergunta simples.</p>
+    <div class="taunt" id="taunt"></div>
+    <div class="dodge-zone">
+      <button id="btnNo" onclick="dodge()">Não</button>
+      <button id="btnYes" onclick="goStep2()">Sim</button>
+    </div>
+  </div>
+
+  <div id="step2" class="step">
+    <h1>Ótima escolha.</h1>
+    <p class="sub">Qual dia você prefere?</p>
+    <div class="cal">
+      <div class="cal-head">
+        <button class="cal-nav" onclick="changeMonth(-1)">‹</button>
+        <span id="calLabel"></span>
+        <button class="cal-nav" onclick="changeMonth(1)">›</button>
+      </div>
+      <div class="cal-grid" id="calGrid"></div>
+    </div>
+    <div class="time-row">
+      <label for="tm">Horário</label>
+      <input type="time" id="tm">
+    </div>
+    <button id="btnSave" onclick="save()" disabled>Salvar</button>
+  </div>
+
+  <div id="step2b" class="step">
+    <h1>O que você prefere</h1>
+    <p class="sub">escolhe o programa.</p>
+    <div class="idea-grid">
+      <button class="idea-card" onclick="finalize('Jantar')"><span class="ic">🍽️</span>Jantar</button>
+      <button class="idea-card" onclick="finalize('Cinema')"><span class="ic">🎬</span>Cinema</button>
+      <button class="idea-card" onclick="finalize('Parque')"><span class="ic">🌳</span>Parque</button>
+      <button class="idea-card" onclick="finalize('Praia')"><span class="ic">🏖️</span>Praia</button>
+    </div>
+  </div>
+
+  <div id="step3" class="step confirm">
+    <div class="ping-wrap"><span class="heart">🩷</span></div>
+    <h1>Combinado.</h1>
+    <p><strong id="ideaText"></strong> em <strong id="whenText"></strong>.</p>
+    <button id="btnWhatsApp" onclick="sendWhatsApp()">Enviar confirmação</button>
+  </div>
+</div>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>
